@@ -1,8 +1,8 @@
-const { User } = require('../models');
 const generateToken = require('../config/GenerateToken');
 const { comparePassword, hashPassword } = require('../config/bcrypt');
 const { errorResponse, successResponse, internalErrorResponse, notFoundResponse } = require('../config/response');
 const { users } = require('../models');
+const db = {};
 
 
 async function register(req, res) {
@@ -34,6 +34,7 @@ async function register(req, res) {
 
         successResponse(res, 'User registered successfully', userResponse, 201);
     } catch (error) {
+        console.error('Error registering new user:', error);
         internalErrorResponse(res, error);
     }
 };
