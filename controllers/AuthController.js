@@ -2,7 +2,6 @@ const generateToken = require('../config/GenerateToken');
 const { comparePassword, hashPassword } = require('../config/bcrypt');
 const { errorResponse, successResponse, internalErrorResponse, notFoundResponse } = require('../config/response');
 const { users } = require('../models');
-const db = {};
 
 
 async function register(req, res) {
